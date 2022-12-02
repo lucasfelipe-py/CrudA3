@@ -101,7 +101,7 @@ public class GerenciaAlunos extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Cadastro de Alunos");
 
-        refresh.setIcon(new javax.swing.ImageIcon("C:\\Users\\55489\\Desktop\\refresh.png")); // NOI18N
+        refresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/refresh.png"))); // NOI18N
         refresh.setText("  Atualizar");
         refresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
