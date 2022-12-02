@@ -1,0 +1,41 @@
+package Principal;
+
+import View.TelaPrincipal;
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import javax.swing.JOptionPane;
+
+public class Principal {
+
+    public static void main(String[] args) {
+        String[] options = {"Claro", "Escuro"};
+        int n = JOptionPane.showOptionDialog(null, "Escolha um tema", "Definir tema", 
+                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+        
+        if (n != 1){
+            java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    FlatLightLaf.setup();
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+                new TelaPrincipal().setVisible(true);
+            }
+            });
+        } else {
+            java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    FlatDarkLaf.setup();
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+                new TelaPrincipal().setVisible(true);
+            }
+            });
+        }
+    }
+}
