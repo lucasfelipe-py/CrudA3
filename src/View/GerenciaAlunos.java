@@ -59,7 +59,6 @@ public class GerenciaAlunos extends javax.swing.JFrame {
             }
         });
 
-        jTableAlunos.setForeground(new java.awt.Color(153, 153, 153));
         jTableAlunos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},

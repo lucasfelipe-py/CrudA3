@@ -62,7 +62,6 @@ public class GerenciaProfessores extends javax.swing.JFrame {
             }
         });
 
-        jTableProfessores.setForeground(new java.awt.Color(153, 153, 153));
         jTableProfessores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
