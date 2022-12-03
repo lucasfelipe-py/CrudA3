@@ -1,6 +1,7 @@
 package DAO;
 
 import Model.Aluno;
+import View.TelaLogin;
 import java.util.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -47,7 +48,7 @@ public class AlunoDAO {
             String database = "db_alunos";
             String url = "jdbc:mysql://" + server + ":3306/" + database + "?useTimezone=true&serverTimezone=UTC";
             String user = "root";
-            String password = "password"; // Alterar password para o banco de dados local
+            String password = TelaLogin.passwordDB; // Alterar password para o banco de dados local
 
             connection = DriverManager.getConnection(url, user, password);
 
