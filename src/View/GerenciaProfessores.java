@@ -1,12 +1,23 @@
 package View;
 
 import Model.Professor;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 
 public class GerenciaProfessores extends javax.swing.JFrame {
     private Professor objetoProfessor;
@@ -28,6 +39,7 @@ public class GerenciaProfessores extends javax.swing.JFrame {
         jTableProfessores = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         refresh = new javax.swing.JButton();
+        export = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu = new javax.swing.JMenu();
         menuGerenciaAluno = new javax.swing.JMenuItem();
@@ -109,6 +121,16 @@ public class GerenciaProfessores extends javax.swing.JFrame {
             }
         });
 
+        export.setText("Exportar");
+        export.setMaximumSize(new java.awt.Dimension(103, 22));
+        export.setMinimumSize(new java.awt.Dimension(103, 22));
+        export.setPreferredSize(new java.awt.Dimension(103, 22));
+        export.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exportActionPerformed(evt);
+            }
+        });
+
         menu.setForeground(new java.awt.Color(239, 239, 239));
         menu.setText("Arquivo");
 
@@ -123,6 +145,11 @@ public class GerenciaProfessores extends javax.swing.JFrame {
 
         menuExport.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuExport.setText("Exportar para Excel");
+        menuExport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuExportActionPerformed(evt);
+            }
+        });
         menu.add(menuExport);
 
         menuRefresh.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -168,7 +195,9 @@ public class GerenciaProfessores extends javax.swing.JFrame {
                         .addComponent(bEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(export, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8))
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -182,7 +211,8 @@ public class GerenciaProfessores extends javax.swing.JFrame {
                     .addComponent(bCadastro)
                     .addComponent(bEditar)
                     .addComponent(bDeletar)
-                    .addComponent(refresh))
+                    .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(export, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
                 .addContainerGap())
@@ -191,7 +221,62 @@ public class GerenciaProfessores extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    private void exportXls() throws IOException{
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Arquivos Excel", "xls");
+        
+        chooser.setFileFilter(filter);
+        chooser.setDialogTitle("Salvar arquivo");
+        chooser.setAcceptAllFileFilterUsed(false);
+        
+        if (chooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION){
+            String path = chooser.getSelectedFile().toString().concat(".xls");
+            try {
+                File fileXLS = new File(path);
+                if (fileXLS.exists()){
+                    fileXLS.delete();
+                }
+                fileXLS.createNewFile();
+                Workbook book = new HSSFWorkbook();
+                FileOutputStream file = new FileOutputStream(fileXLS);
+                Sheet sheet = book.createSheet("Minha folha de trabalho 1");
+                sheet.setDisplayGridlines(false);
+                
+                for (int i = 0; i < this.jTableProfessores.getRowCount(); i++){
+                    Row row = sheet.createRow(i);
+                    for (int j = 0; j < this.jTableProfessores.getColumnCount(); j++){
+                        Cell cell = row.createCell(j);
+                        if (i == 0){
+                            cell.setCellValue(this.jTableProfessores.getColumnName(j));
+                        }
+                    }
+                }
+                
+                int firstRow = 1;
+                
+                for (int linha = 0; linha < this.jTableProfessores.getRowCount(); linha++){
+                    Row row2 = sheet.createRow(firstRow);
+                    firstRow++;
+                    for (int coluna = 0; coluna < this.jTableProfessores.getColumnCount(); coluna++){
+                        Cell cell2 = row2.createCell(coluna);
+                        if (this.jTableProfessores.getValueAt(linha, coluna) instanceof Double){
+                            cell2.setCellValue(Double.parseDouble((String) this.jTableProfessores.getValueAt(linha, coluna).toString()));
+                        } else if (this.jTableProfessores. getValueAt (linha, coluna) instanceof Float){
+                            cell2.setCellValue(Float.parseFloat((String) this.jTableProfessores.getValueAt(linha, coluna)));
+                        } else {
+                            cell2.setCellValue(String.valueOf(this.jTableProfessores.getValueAt(linha, coluna)));
+                        }
+                    }
+                }
+                book.write(file);
+                file.close();
+                Desktop.getDesktop().open(fileXLS);
+            } catch (IOException | NumberFormatException e){
+                throw e;
+            }
+        }
+    }
+    
     private void menuGerenciaAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGerenciaAlunoActionPerformed
         GerenciaAlunos tela = new GerenciaAlunos();
         tela.setVisible(true);
@@ -299,6 +384,22 @@ public class GerenciaProfessores extends javax.swing.JFrame {
     private void menuRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRefreshActionPerformed
         this.carregaTabela();
     }//GEN-LAST:event_menuRefreshActionPerformed
+
+    private void menuExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExportActionPerformed
+        try {
+            this.exportXls();
+        } catch (IOException ex) {
+            Logger.getLogger(GerenciaProfessores.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_menuExportActionPerformed
+
+    private void exportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportActionPerformed
+        try {
+            this.exportXls();
+        } catch (IOException ex) {
+            Logger.getLogger(GerenciaProfessores.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_exportActionPerformed
     
     @SuppressWarnings("unchecked")
     public void carregaTabela() {
@@ -365,6 +466,7 @@ public class GerenciaProfessores extends javax.swing.JFrame {
     private javax.swing.JButton bCadastro;
     private javax.swing.JButton bDeletar;
     private javax.swing.JButton bEditar;
+    private javax.swing.JButton export;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
