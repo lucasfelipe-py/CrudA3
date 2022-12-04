@@ -102,17 +102,15 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jScrollPane2" alignment="0" pref="859" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                      <Component id="refresh" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                      <Component id="refresh" min="-2" pref="143" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                       <Component id="bCadastro" min="-2" pref="144" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="bEditar" min="-2" pref="144" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="bDeletar" min="-2" pref="144" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="export" min="-2" pref="103" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <Component id="export" min="-2" pref="143" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jLabel1" alignment="1" max="32767" attributes="0"/>
               </Group>
@@ -131,7 +129,7 @@
                   <Component id="bEditar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="bDeletar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="refresh" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="export" alignment="1" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="export" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jScrollPane2" pref="266" max="32767" attributes="0"/>
@@ -239,7 +237,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/View/refresh.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="  Atualizar"/>
+        <Property name="text" type="java.lang.String" value="  Atualizar tabela"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="refreshActionPerformed"/>
@@ -247,7 +245,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="export">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Exportar"/>
+        <Property name="text" type="java.lang.String" value="Exportar para Excel"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exportActionPerformed"/>
