@@ -10,6 +10,7 @@ public class TelaLogin extends javax.swing.JFrame {
     
     public TelaLogin() {
         initComponents();
+        getRootPane().setDefaultButton(this.login);
     }
 
     @SuppressWarnings("unchecked")
@@ -30,6 +31,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         login.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         login.setText("LOGIN");
+        login.setToolTipText("");
         login.setAlignmentX(0.5F);
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
