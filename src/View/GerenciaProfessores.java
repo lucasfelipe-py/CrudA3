@@ -1,7 +1,6 @@
 package View;
 
 import Model.Professor;
-import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -205,13 +204,13 @@ public class GerenciaProfessores extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(bCadastro)
                         .addComponent(bEditar)
                         .addComponent(bDeletar)
-                        .addComponent(export, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(export, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
                 .addContainerGap())
@@ -269,7 +268,6 @@ public class GerenciaProfessores extends javax.swing.JFrame {
                 }
                 book.write(file);
                 file.close();
-                Desktop.getDesktop().open(fileXLS);
             } catch (IOException | NumberFormatException e){
                 throw e;
             }
@@ -335,7 +333,7 @@ public class GerenciaProfessores extends javax.swing.JFrame {
             String titulo = this.jTableProfessores.getValueAt(this.jTableProfessores.getSelectedRow(), 6).toString();
             String salario = this.jTableProfessores.getValueAt(this.jTableProfessores.getSelectedRow(), 7).toString();
             String id = this.jTableProfessores.getValueAt(this.jTableProfessores.getSelectedRow(), 0).toString();
-
+            
             listaDados[0] = nome;
             listaDados[1] = idade;
             listaDados[2] = campus;
@@ -417,7 +415,7 @@ public class GerenciaProfessores extends javax.swing.JFrame {
                 a.getCpf(),
                 a.getContato(),
                 a.getTitulo(),
-                a.getSalario()
+                "R$" + a.getSalario()
             });
         }
     }

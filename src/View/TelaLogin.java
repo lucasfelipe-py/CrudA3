@@ -42,6 +42,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel1.setText("SisUni - Sistema de Gerenciamento Universitário");
 
         password.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

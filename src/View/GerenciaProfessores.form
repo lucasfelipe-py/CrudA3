@@ -124,14 +124,14 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="99" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="refresh" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                  <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                       <Component id="bCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="bEditar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="bDeletar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="export" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="refresh" min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jScrollPane2" pref="266" max="32767" attributes="0"/>

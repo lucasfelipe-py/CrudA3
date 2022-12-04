@@ -1,7 +1,6 @@
 package View;
 
 import Model.Aluno;
-import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -266,7 +265,6 @@ public class GerenciaAlunos extends javax.swing.JFrame {
                 }
                 book.write(file);
                 file.close();
-                Desktop.getDesktop().open(fileXLS);
             } catch (IOException | NumberFormatException e){
                 throw e;
             }
@@ -309,7 +307,9 @@ public class GerenciaAlunos extends javax.swing.JFrame {
             String curso = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 3).toString();
             String fase = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 4).toString();
             String id = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 0).toString();
-
+            
+            fase = String.valueOf(fase.charAt(0));
+            
             listaDados2[0] = id;
             listaDados2[1] = nome;
             listaDados2[2] = idade;
@@ -386,7 +386,7 @@ public class GerenciaAlunos extends javax.swing.JFrame {
                 a.getNome(),
                 a.getIdade(),
                 a.getCurso(),
-                a.getFase(),
+                a.getFase() + "ª",
             });
         }
     }
