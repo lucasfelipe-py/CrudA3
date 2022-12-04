@@ -281,9 +281,6 @@ public class CadastroProfessor extends javax.swing.JFrame {
             } else {
                 idade = calculaIdade(this.idade.getDate());
             }
-//            if (this.idade.getDate() == null){
-//                throw new Mensagens("Data de nascimento não pode ser vazio");
-//            } 
             
             // Setando salário
             if (validarFormatado(this.salarioFormatado.getText()).length() < 4){
@@ -301,7 +298,7 @@ public class CadastroProfessor extends javax.swing.JFrame {
             
             // Adicionando dados validados no database
             if (this.objetoProfessor.InsertProfessorBD(campus, cpf, contato, titulo, salario, nome, idade)){
-                JOptionPane.showMessageDialog(rootPane, "Professor Cadastrado com Sucesso!");
+                JOptionPane.showMessageDialog(rootPane, "Professor cadastrado com sucesso!");
                 
                 this.dispose();
             }

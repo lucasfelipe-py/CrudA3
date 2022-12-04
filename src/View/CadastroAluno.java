@@ -192,7 +192,7 @@ public class CadastroAluno extends javax.swing.JFrame {
             
             // Adicionando dados validados no database
             if (this.objetoAluno.InsertAlunoBD(curso, fase, nome, idade)){
-                JOptionPane.showMessageDialog(rootPane, "Aluno Cadastrado com Sucesso!");
+                JOptionPane.showMessageDialog(rootPane, "Aluno cadastrado com sucesso!");
                 
                 this.dispose();
             }
