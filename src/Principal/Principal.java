@@ -8,6 +8,12 @@ import javax.swing.JOptionPane;
 public class Principal {
 
     public static void main(String[] args) {
+        try {
+            FlatDarkLaf.setup();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        
         String[] options = {"Claro", "Escuro"};
         int n = JOptionPane.showOptionDialog(null, "Escolha um tema", "Definir tema", 
                 JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
