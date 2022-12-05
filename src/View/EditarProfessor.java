@@ -1,8 +1,6 @@
 package View;
 
 import com.formdev.flatlaf.json.ParseException;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -39,11 +37,11 @@ public class EditarProfessor extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         cpfFormatado = new javax.swing.JFormattedTextField();
         jLabel9 = new javax.swing.JLabel();
-        contatoFormatado = new javax.swing.JFormattedTextField();
-        jLabel4 = new javax.swing.JLabel();
         salarioFormatado = new javax.swing.JFormattedTextField();
         jLabel5 = new javax.swing.JLabel();
         idade = new javax.swing.JTextField();
+        contatoFormatado = new javax.swing.JFormattedTextField();
+        jLabel7 = new javax.swing.JLabel();
 
         setTitle("Editar Professor");
 
@@ -85,15 +83,9 @@ public class EditarProfessor extends javax.swing.JFrame {
 
         jLabel9.setText("CPF:");
 
-        contatoFormatado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contatoFormatadoActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("Contato:");
-
         jLabel5.setText("Salário:");
+
+        jLabel7.setText("Contato:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,8 +128,8 @@ public class EditarProfessor extends javax.swing.JFrame {
                                     .addComponent(campus, 0, 282, Short.MAX_VALUE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(cpfFormatado)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel4)
+                                        .addGap(21, 21, 21)
+                                        .addComponent(jLabel7)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(contatoFormatado, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -161,7 +153,7 @@ public class EditarProfessor extends javax.swing.JFrame {
                     .addComponent(cpfFormatado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
                     .addComponent(contatoFormatado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -194,7 +186,7 @@ public class EditarProfessor extends javax.swing.JFrame {
             MaskFormatter mask3 = new MaskFormatter("R$#####");
             mask3.install(salarioFormatado);
         } catch (ParseException ex){
-            JOptionPane.showMessageDialog(null, "Erro ao formatar campos", "ERRO", JOptionPane.ERROR);
+            JOptionPane.showMessageDialog(rootPane, "Erro ao formatar campos", "ERRO", JOptionPane.ERROR);
         }
     }
     
@@ -209,6 +201,17 @@ public class EditarProfessor extends javax.swing.JFrame {
         
         return str;
     }
+    
+    private String editSalario(String input){
+        String str = "";
+        
+        for (int i = 0; i < input.length() - 2 ; i++){
+            str += input.charAt(i) + "";
+        }
+        
+        return str;
+    }
+    
     private void preencheCampos(){
         String[] arrayCampus = {"-", 
                 "Continente",
@@ -237,14 +240,14 @@ public class EditarProfessor extends javax.swing.JFrame {
                 indexTitulo = j;
             }
         }
-        
+           
         this.nome.setText(GerenciaProfessores.listaDados[0]);
         this.idade.setText(GerenciaProfessores.listaDados[1]);
         this.campus.setSelectedIndex(indexCampus);
         this.cpfFormatado.setText(GerenciaProfessores.listaDados[3]);
         this.contatoFormatado.setText(GerenciaProfessores.listaDados[4]);
         this.titulo.setSelectedIndex(indexTitulo);
-        this.salarioFormatado.setText(GerenciaProfessores.listaDados[6]);
+        this.salarioFormatado.setText(editSalario(GerenciaProfessores.listaDados[6]));
     }
     
     private void bConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConfirmarActionPerformed
@@ -331,19 +334,15 @@ public class EditarProfessor extends javax.swing.JFrame {
             
         // Capturando exceções    
         } catch (Mensagens erro) {
-            JOptionPane.showMessageDialog(null, erro.getMessage());
+            JOptionPane.showMessageDialog(rootPane, erro.getMessage());
         } catch (NumberFormatException erro2) {
-            JOptionPane.showMessageDialog(null, "Informe um número.");
+            JOptionPane.showMessageDialog(rootPane, "Informe um número.");
         }
     }//GEN-LAST:event_bConfirmarActionPerformed
 
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_bCancelarActionPerformed
-
-    private void contatoFormatadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contatoFormatadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_contatoFormatadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -401,9 +400,9 @@ public class EditarProfessor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField nome;

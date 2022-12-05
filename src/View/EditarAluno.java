@@ -1,9 +1,6 @@
 package View;
 
 import Model.Aluno;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class EditarAluno extends javax.swing.JFrame {

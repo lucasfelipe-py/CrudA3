@@ -240,8 +240,8 @@ public class GerenciaAlunos extends javax.swing.JFrame {
                 Workbook book = new HSSFWorkbook();
                 FileOutputStream file = new FileOutputStream(fileXLS);
                 Sheet sheet = book.createSheet("Minha folha de trabalho 1");
-                sheet.setDisplayGridlines(false);
-                
+                sheet.setDisplayGridlines(true);
+                     
                 for (int i = 0; i < this.jTableAlunos.getRowCount(); i++){
                     Row row = sheet.createRow(i);
                     for (int j = 0; j < this.jTableAlunos.getColumnCount(); j++){
@@ -261,8 +261,10 @@ public class GerenciaAlunos extends javax.swing.JFrame {
                         Cell cell2 = row2.createCell(coluna);
                         if (this.jTableAlunos.getValueAt(linha, coluna) instanceof Double){
                             cell2.setCellValue(Double.parseDouble((String) this.jTableAlunos.getValueAt(linha, coluna).toString()));
-                        } else if (this.jTableAlunos. getValueAt (linha, coluna) instanceof Float){
+                        } else if (this.jTableAlunos.getValueAt(linha, coluna) instanceof Float){
                             cell2.setCellValue(Float.parseFloat((String) this.jTableAlunos.getValueAt(linha, coluna)));
+                        } else if (this.jTableAlunos.getValueAt(linha, coluna) instanceof Integer){
+                            cell2.setCellValue(Integer.parseInt((String) this.jTableAlunos.getValueAt(linha, coluna).toString()));
                         } else {
                             cell2.setCellValue(String.valueOf(this.jTableAlunos.getValueAt(linha, coluna)));
                         }

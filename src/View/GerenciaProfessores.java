@@ -107,8 +107,8 @@ public class GerenciaProfessores extends javax.swing.JFrame {
             jTableProfessores.getColumnModel().getColumn(0).setMaxWidth(40);
             jTableProfessores.getColumnModel().getColumn(2).setMinWidth(40);
             jTableProfessores.getColumnModel().getColumn(2).setMaxWidth(40);
-            jTableProfessores.getColumnModel().getColumn(7).setMinWidth(60);
-            jTableProfessores.getColumnModel().getColumn(7).setMaxWidth(60);
+            jTableProfessores.getColumnModel().getColumn(7).setMinWidth(75);
+            jTableProfessores.getColumnModel().getColumn(7).setMaxWidth(75);
         }
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
@@ -243,7 +243,7 @@ public class GerenciaProfessores extends javax.swing.JFrame {
                 Workbook book = new HSSFWorkbook();
                 FileOutputStream file = new FileOutputStream(fileXLS);
                 Sheet sheet = book.createSheet("Minha folha de trabalho 1");
-                sheet.setDisplayGridlines(false);
+                sheet.setDisplayGridlines(true);
                 
                 for (int i = 0; i < this.jTableProfessores.getRowCount(); i++){
                     Row row = sheet.createRow(i);
@@ -264,8 +264,10 @@ public class GerenciaProfessores extends javax.swing.JFrame {
                         Cell cell2 = row2.createCell(coluna);
                         if (this.jTableProfessores.getValueAt(linha, coluna) instanceof Double){
                             cell2.setCellValue(Double.parseDouble((String) this.jTableProfessores.getValueAt(linha, coluna).toString()));
-                        } else if (this.jTableProfessores. getValueAt (linha, coluna) instanceof Float){
+                        } else if (this.jTableProfessores.getValueAt(linha, coluna) instanceof Float){
                             cell2.setCellValue(Float.parseFloat((String) this.jTableProfessores.getValueAt(linha, coluna)));
+                        } else if (this.jTableProfessores.getValueAt(linha, coluna) instanceof Integer){
+                            cell2.setCellValue(Integer.parseInt((String) this.jTableProfessores.getValueAt(linha, coluna).toString()));
                         } else {
                             cell2.setCellValue(String.valueOf(this.jTableProfessores.getValueAt(linha, coluna)));
                         }
@@ -372,7 +374,7 @@ public class GerenciaProfessores extends javax.swing.JFrame {
                 }
             }
         } catch (Mensagens erro) {
-            JOptionPane.showMessageDialog(null, erro.getMessage());
+            JOptionPane.showMessageDialog(rootPane, erro.getMessage());
         } finally {
             // atualiza a tabela.
             carregaTabela();
@@ -420,7 +422,7 @@ public class GerenciaProfessores extends javax.swing.JFrame {
                 a.getCpf(),
                 a.getContato(),
                 a.getTitulo(),
-                "R$" + a.getSalario()
+                "R$" + a.getSalario() + ".00"
             });
         }
     }

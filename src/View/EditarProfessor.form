@@ -68,8 +68,8 @@
                                   <Component id="campus" alignment="0" pref="282" max="32767" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="cpfFormatado" max="32767" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="contatoFormatado" min="-2" pref="104" max="-2" attributes="0"/>
                                   </Group>
@@ -103,7 +103,7 @@
                   <Component id="cpfFormatado" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="contatoFormatado" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -226,16 +226,6 @@
         <Property name="text" type="java.lang.String" value="CPF:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="contatoFormatado">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contatoFormatadoActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Contato:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JFormattedTextField" name="salarioFormatado">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
@@ -244,6 +234,13 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="idade">
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="contatoFormatado">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel7">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Contato:"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
