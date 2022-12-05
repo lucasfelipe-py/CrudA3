@@ -111,6 +111,7 @@
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Professores"/>
+        <Property name="toolTipText" type="java.lang.String" value="Pressione CTRL+P"/>
         <Property name="alignmentX" type="float" value="0.5"/>
       </Properties>
       <AccessibilityProperties>
@@ -126,6 +127,7 @@
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Alunos"/>
+        <Property name="toolTipText" type="java.lang.String" value="Pressione CTRL+A"/>
       </Properties>
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Cadastro de Alunos"/>

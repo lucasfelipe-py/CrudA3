@@ -30,7 +30,6 @@ public class AlunoDAO {
 
         } catch (SQLException ex) {
         }
-
         return maiorID;
     }
 
@@ -47,7 +46,7 @@ public class AlunoDAO {
             String server = "localhost"; //caminho do MySQL
             String database = "db_alunos";
             String url = "jdbc:mysql://" + server + ":3306/" + database + "?useTimezone=true&serverTimezone=UTC";
-            String user = "root";
+            String user = TelaLogin.userDB;
             String password = TelaLogin.passwordDB; // Alterar password para o banco de dados local
 
             connection = DriverManager.getConnection(url, user, password);
@@ -61,7 +60,7 @@ public class AlunoDAO {
 
             return connection;
 
-        } catch (ClassNotFoundException e) {  //Driver n�o encontrado
+        } catch (ClassNotFoundException e) {  //Driver não encontrado
             System.out.println("O driver nao foi encontrado. " + e.getMessage() );
             return null;
 
@@ -74,7 +73,7 @@ public class AlunoDAO {
     // Retorna a Lista de Alunos(objetos)
     public ArrayList getMinhaLista() {
         
-        MinhaLista.clear(); // Limpa nosso ArrayList
+        MinhaLista.clear(); // Limpa o arrayList
 
         try {
             Statement stmt = this.getConexao().createStatement();
@@ -124,7 +123,7 @@ public class AlunoDAO {
 
     }
 
-    // Deleta um aluno espec�fico pelo seu campo ID
+    // Deleta um aluno específico pelo seu campo ID
     public boolean DeleteAlunoBD(int id) {
         try {
             Statement stmt = this.getConexao().createStatement();
@@ -137,7 +136,7 @@ public class AlunoDAO {
         return true;
     }
 
-    // Edita um aluno espec�fico pelo seu campo ID
+    // Edita um aluno específico pelo seu campo ID
     public boolean UpdateAlunoBD(Aluno objeto) {
 
         String sql = "UPDATE tb_alunos set nome = ? ,idade = ? ,curso = ? ,fase = ? WHERE id = ?";

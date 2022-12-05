@@ -16,6 +16,7 @@ public class EditarProfessor extends javax.swing.JFrame {
         initComponents();
         formatarCampos();
         preencheCampos();
+        getRootPane().setDefaultButton(this.bConfirmar);
         this.objetoProfessor = new Professor();  
     }
 
@@ -67,6 +68,7 @@ public class EditarProfessor extends javax.swing.JFrame {
         });
 
         bConfirmar.setText("Confirmar");
+        bConfirmar.setToolTipText("Pressione ENTER");
         bConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bConfirmarActionPerformed(evt);

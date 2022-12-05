@@ -14,6 +14,7 @@ public class CadastroAluno extends javax.swing.JFrame {
     
     public CadastroAluno() {
         initComponents();
+        getRootPane().setDefaultButton(this.bConfirmar);
         this.objetoAluno = new Aluno();
     }
 
@@ -65,6 +66,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         });
 
         bConfirmar.setText("Confirmar");
+        bConfirmar.setToolTipText("Pressione ENTER");
         bConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bConfirmarActionPerformed(evt);

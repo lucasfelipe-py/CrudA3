@@ -144,6 +144,7 @@
     <Component class="javax.swing.JButton" name="bCadastro">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar novo"/>
+        <Property name="toolTipText" type="java.lang.String" value="Cadastrar novo professor"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bCadastroActionPerformed"/>
@@ -152,6 +153,7 @@
     <Component class="javax.swing.JButton" name="bEditar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Editar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Editar cadastro selecionado"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bEditarActionPerformed"/>
@@ -160,6 +162,7 @@
     <Component class="javax.swing.JButton" name="bDeletar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Deletar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Deletar cadastro selecionado"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bDeletarActionPerformed"/>
@@ -258,6 +261,7 @@
           <Image iconType="3" name="/View/refresh.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="  Atualizar tabela"/>
+        <Property name="toolTipText" type="java.lang.String" value="Atualizar dados inseridos na tabela"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="refreshActionPerformed"/>
@@ -266,6 +270,7 @@
     <Component class="javax.swing.JButton" name="export">
       <Properties>
         <Property name="text" type="java.lang.String" value="Exportar para Excel"/>
+        <Property name="toolTipText" type="java.lang.String" value="Exportar base de dados para Excel (.xls)"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[103, 22]"/>
         </Property>

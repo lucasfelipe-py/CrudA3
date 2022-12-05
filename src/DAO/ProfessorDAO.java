@@ -44,11 +44,11 @@ public class ProfessorDAO {
             String driver = "com.mysql.cj.jdbc.Driver";
             Class.forName(driver);
 
-            // Configurar a conex�o
+            // Configurar a conexão
             String server = "localhost"; //caminho do MySQL
             String database = "db_alunos";
             String url = "jdbc:mysql://" + server + ":3306/" + database + "?useTimezone=true&serverTimezone=UTC";
-            String user = "root";
+            String user = TelaLogin.userDB;
             String password = TelaLogin.passwordDB; // Alterar password para o banco de dados local
 
             connection = DriverManager.getConnection(url, user, password);
@@ -75,7 +75,7 @@ public class ProfessorDAO {
     // Retorna a Lista de Professores (objetos)
     public ArrayList getMinhaLista() {
         
-        MinhaLista2.clear(); // Limpa nosso ArrayList
+        MinhaLista2.clear(); // Limpa o arrayList
 
         try {
             Statement stmt = this.getConexao().createStatement();
@@ -144,7 +144,7 @@ public class ProfessorDAO {
         return true;
     }
     
-    // Edita um aluno espec�fico pelo seu campo ID
+    // Edita um aluno específico pelo seu campo ID
     public boolean UpdateProfessorBD(Professor objeto) {
 
         String sql = "UPDATE tb_professores set nome = ? ,idade = ? ,campus = ? ,cpf = ? ,contato = ? ,titulo = ? ,salario = ? WHERE id = ?";

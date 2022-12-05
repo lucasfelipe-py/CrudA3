@@ -34,6 +34,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         bProfessores.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         bProfessores.setText("Professores");
+        bProfessores.setToolTipText("Pressione CTRL+P");
         bProfessores.setAlignmentX(0.5F);
         bProfessores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -43,6 +44,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         bAlunos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         bAlunos.setText("Alunos");
+        bAlunos.setToolTipText("Pressione CTRL+A");
         bAlunos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bAlunosActionPerformed(evt);

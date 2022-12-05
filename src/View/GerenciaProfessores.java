@@ -53,6 +53,7 @@ public class GerenciaProfessores extends javax.swing.JFrame {
         setResizable(false);
 
         bCadastro.setText("Cadastrar novo");
+        bCadastro.setToolTipText("Cadastrar novo professor");
         bCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bCadastroActionPerformed(evt);
@@ -60,6 +61,7 @@ public class GerenciaProfessores extends javax.swing.JFrame {
         });
 
         bEditar.setText("Editar");
+        bEditar.setToolTipText("Editar cadastro selecionado");
         bEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bEditarActionPerformed(evt);
@@ -67,6 +69,7 @@ public class GerenciaProfessores extends javax.swing.JFrame {
         });
 
         bDeletar.setText("Deletar");
+        bDeletar.setToolTipText("Deletar cadastro selecionado");
         bDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bDeletarActionPerformed(evt);
@@ -114,6 +117,7 @@ public class GerenciaProfessores extends javax.swing.JFrame {
 
         refresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/refresh.png"))); // NOI18N
         refresh.setText("  Atualizar tabela");
+        refresh.setToolTipText("Atualizar dados inseridos na tabela");
         refresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshActionPerformed(evt);
@@ -121,6 +125,7 @@ public class GerenciaProfessores extends javax.swing.JFrame {
         });
 
         export.setText("Exportar para Excel");
+        export.setToolTipText("Exportar base de dados para Excel (.xls)");
         export.setMaximumSize(new java.awt.Dimension(103, 22));
         export.setMinimumSize(new java.awt.Dimension(103, 22));
         export.setPreferredSize(new java.awt.Dimension(103, 22));
