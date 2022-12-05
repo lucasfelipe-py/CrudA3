@@ -52,7 +52,7 @@ public class GerenciaAlunos extends javax.swing.JFrame {
         setResizable(false);
 
         bCadastro.setText("Cadastrar novo");
-        bCadastro.setToolTipText("Cadastrar novo aluno");
+        bCadastro.setToolTipText("");
         bCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bCadastroActionPerformed(evt);
@@ -60,7 +60,7 @@ public class GerenciaAlunos extends javax.swing.JFrame {
         });
 
         bEditar.setText("Editar");
-        bEditar.setToolTipText("Editar cadastro selecionado");
+        bEditar.setToolTipText("");
         bEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bEditarActionPerformed(evt);
@@ -68,7 +68,7 @@ public class GerenciaAlunos extends javax.swing.JFrame {
         });
 
         bDeletar.setText("Deletar");
-        bDeletar.setToolTipText("Deletar cadastro selecionado");
+        bDeletar.setToolTipText("");
         bDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bDeletarActionPerformed(evt);
@@ -118,7 +118,7 @@ public class GerenciaAlunos extends javax.swing.JFrame {
 
         refresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/refresh.png"))); // NOI18N
         refresh.setText("  Atualizar tabela");
-        refresh.setToolTipText("Atualizar dados inseridos na tabela");
+        refresh.setToolTipText("");
         refresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshActionPerformed(evt);
@@ -126,7 +126,7 @@ public class GerenciaAlunos extends javax.swing.JFrame {
         });
 
         export.setText("Exportar para Excel");
-        export.setToolTipText("Exportar base de dados para Excel (.xls)");
+        export.setToolTipText("Pressione CTRL+E");
         export.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exportActionPerformed(evt);
