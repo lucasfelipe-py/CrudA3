@@ -261,7 +261,7 @@
           <Image iconType="3" name="/View/refresh.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="  Atualizar tabela"/>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="toolTipText" type="java.lang.String" value="CTRL+R"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="refreshActionPerformed"/>
@@ -270,7 +270,7 @@
     <Component class="javax.swing.JButton" name="export">
       <Properties>
         <Property name="text" type="java.lang.String" value="Exportar para Excel"/>
-        <Property name="toolTipText" type="java.lang.String" value="Pressione CTRL+E"/>
+        <Property name="toolTipText" type="java.lang.String" value="CTRL+E"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[103, 22]"/>
         </Property>

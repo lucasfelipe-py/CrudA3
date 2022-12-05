@@ -183,7 +183,7 @@
     <Component class="javax.swing.JButton" name="bConfirmar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Confirmar"/>
-        <Property name="toolTipText" type="java.lang.String" value="Pressione ENTER"/>
+        <Property name="toolTipText" type="java.lang.String" value="ENTER"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bConfirmarActionPerformed"/>

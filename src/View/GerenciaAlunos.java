@@ -118,7 +118,7 @@ public class GerenciaAlunos extends javax.swing.JFrame {
 
         refresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/refresh.png"))); // NOI18N
         refresh.setText("  Atualizar tabela");
-        refresh.setToolTipText("");
+        refresh.setToolTipText("CTRL+R");
         refresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshActionPerformed(evt);
@@ -126,7 +126,7 @@ public class GerenciaAlunos extends javax.swing.JFrame {
         });
 
         export.setText("Exportar para Excel");
-        export.setToolTipText("Pressione CTRL+E");
+        export.setToolTipText("CTRL+E");
         export.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exportActionPerformed(evt);

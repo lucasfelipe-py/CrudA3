@@ -64,7 +64,7 @@ public class EditarAluno extends javax.swing.JFrame {
         });
 
         bConfirmar.setText("Confirmar");
-        bConfirmar.setToolTipText("Pressione ENTER");
+        bConfirmar.setToolTipText("ENTER");
         bConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bConfirmarActionPerformed(evt);
