@@ -45,11 +45,9 @@ public class ProfessorDAO {
             Class.forName(driver);
 
             // Configurar a conexão
-            String server = "localhost"; //caminho do MySQL
-            String database = "db_alunos";
-            String url = "jdbc:mysql://" + server + ":3306/" + database + "?useTimezone=true&serverTimezone=UTC";
+            String url = "jdbc:mysql://localhost:3306/db_alunos?useTimezone=true&serverTimezone=UTC";
             String user = TelaLogin.userDB;
-            String password = TelaLogin.passwordDB; // Alterar password para o banco de dados local
+            String password = TelaLogin.passwordDB;
 
             connection = DriverManager.getConnection(url, user, password);
 
