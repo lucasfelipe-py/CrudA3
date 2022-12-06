@@ -25,6 +25,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         arquivo = new javax.swing.JMenu();
         menuAlunos = new javax.swing.JMenuItem();
         menuProfessores = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menuLeave = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,6 +75,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         arquivo.add(menuProfessores);
+
+        jMenuItem1.setText("Sobre");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        arquivo.add(jMenuItem1);
 
         menuLeave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuLeave.setText("Sair");
@@ -150,6 +159,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_menuLeaveActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        Sobre tela = new Sobre();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -173,6 +187,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton bProfessores;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem menuAlunos;
     private javax.swing.JMenuItem menuLeave;
     private javax.swing.JMenuItem menuProfessores;

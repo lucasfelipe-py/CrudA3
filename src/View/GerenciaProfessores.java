@@ -44,8 +44,8 @@ public class GerenciaProfessores extends javax.swing.JFrame {
         menuGerenciaAluno = new javax.swing.JMenuItem();
         menuExport = new javax.swing.JMenuItem();
         menuRefresh = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menuLeave = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerência de Professores");
@@ -165,6 +165,14 @@ public class GerenciaProfessores extends javax.swing.JFrame {
         });
         menu.add(menuRefresh);
 
+        jMenuItem1.setText("Sobre");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        menu.add(jMenuItem1);
+
         menuLeave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuLeave.setText("Sair");
         menuLeave.addActionListener(new java.awt.event.ActionListener() {
@@ -175,10 +183,6 @@ public class GerenciaProfessores extends javax.swing.JFrame {
         menu.add(menuLeave);
 
         jMenuBar1.add(menu);
-
-        jMenu1.setForeground(new java.awt.Color(239, 239, 239));
-        jMenu1.setText("Sobre");
-        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -404,6 +408,11 @@ public class GerenciaProfessores extends javax.swing.JFrame {
             Logger.getLogger(GerenciaProfessores.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_exportActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        Sobre tela = new Sobre();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
     
     @SuppressWarnings("unchecked")
     public void carregaTabela() {
@@ -472,8 +481,8 @@ public class GerenciaProfessores extends javax.swing.JFrame {
     private javax.swing.JButton bEditar;
     private javax.swing.JButton export;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableProfessores;
     private javax.swing.JMenu menu;

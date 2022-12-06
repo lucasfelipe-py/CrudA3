@@ -32,7 +32,9 @@ public class EditarAluno extends javax.swing.JFrame {
         bConfirmar = new javax.swing.JButton();
         idade = new javax.swing.JTextField();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Editar Aluno");
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

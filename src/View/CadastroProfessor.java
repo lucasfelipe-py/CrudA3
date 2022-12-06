@@ -45,7 +45,9 @@ public class CadastroProfessor extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         contatoFormatado = new javax.swing.JFormattedTextField();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Professor");
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

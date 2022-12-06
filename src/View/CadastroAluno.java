@@ -37,7 +37,9 @@ public class CadastroAluno extends javax.swing.JFrame {
         bConfirmar = new javax.swing.JButton();
         idade = new com.toedter.calendar.JDateChooser();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Alunos");
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

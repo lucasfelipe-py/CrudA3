@@ -43,7 +43,9 @@ public class EditarProfessor extends javax.swing.JFrame {
         contatoFormatado = new javax.swing.JFormattedTextField();
         jLabel7 = new javax.swing.JLabel();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Editar Professor");
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
