@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 import Model.Professor;
+import java.util.ArrayList;
 
 public class CadastroProfessor extends javax.swing.JFrame {
     private Professor objetoProfessor;
@@ -196,6 +197,18 @@ public class CadastroProfessor extends javax.swing.JFrame {
         }
     }
     
+    private boolean verificaCpf(String cpf){
+        ArrayList<Professor> minhalista = new ArrayList<>();
+        minhalista = objetoProfessor.getMinhaLista();
+
+        for (Professor a : minhalista) {
+            if ((cpf.equals(a.getCpf()))){
+                return true;
+            }
+        }
+        return false;
+    }
+    
     private int calculaIdade(java.util.Date dataNasc){
         Calendar dataNascimento = new GregorianCalendar();
         dataNascimento.setTime(dataNasc);
@@ -268,6 +281,8 @@ public class CadastroProfessor extends javax.swing.JFrame {
             // Setando cpf
             if (validarFormatado(this.cpfFormatado.getText()).length() != 11){
                 throw new Mensagens("O campo CPF deve possuir 11 caracteres numéricos");
+            } else if (this.verificaCpf(this.cpfFormatado.getText())) {
+                throw new Mensagens("CPF já cadastrado no sistema");
             } else {
                 cpf = this.cpfFormatado.getText();
             }

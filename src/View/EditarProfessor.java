@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 import Model.Professor;
+import java.util.ArrayList;
 
 public class EditarProfessor extends javax.swing.JFrame {
     private Professor objetoProfessor;
@@ -130,7 +131,7 @@ public class EditarProfessor extends javax.swing.JFrame {
                                     .addComponent(campus, 0, 282, Short.MAX_VALUE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(cpfFormatado)
-                                        .addGap(21, 21, 21)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel7)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(contatoFormatado, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -190,6 +191,18 @@ public class EditarProfessor extends javax.swing.JFrame {
         } catch (ParseException ex){
             JOptionPane.showMessageDialog(rootPane, "Erro ao formatar campos", "ERRO", JOptionPane.ERROR);
         }
+    }
+    
+    private boolean verificaCpf(String cpf){
+        ArrayList<Professor> minhalista = new ArrayList<>();
+        minhalista = objetoProfessor.getMinhaLista();
+
+        for (Professor a : minhalista) {
+            if ((cpf.equals(a.getCpf())) && (a.getId() != Integer.parseInt(GerenciaProfessores.listaDados[7]))){
+                return true;
+            }
+        }
+        return false;
     }
     
     private String validarFormatado(String input){
@@ -292,6 +305,8 @@ public class EditarProfessor extends javax.swing.JFrame {
             // Setando cpf
             if (validarFormatado(this.cpfFormatado.getText()).length() != 11){
                 throw new Mensagens("O campo CPF deve possuir 11 caracteres numéricos");
+            } else if (this.verificaCpf(this.cpfFormatado.getText())) {
+                throw new Mensagens("CPF já cadastrado no sistema");
             } else {
                 cpf = this.cpfFormatado.getText();
             }
