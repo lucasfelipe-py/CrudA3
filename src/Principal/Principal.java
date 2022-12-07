@@ -15,7 +15,7 @@ public class Principal {
         }
         
         String[] options = {"Claro", "Escuro"};
-        int n = JOptionPane.showOptionDialog(null, "Escolha um tema", "Definir tema", 
+        int n = JOptionPane.showOptionDialog(null, "Escolha um tema", "SisUni", 
                 JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
         
         if (n != 1){
