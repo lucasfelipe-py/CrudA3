@@ -7,18 +7,18 @@ public abstract class Pessoa {
     private String nome;
     private int idade;
 
-    // M�todo Construtor de Objeto Vazio
+    // Construtor padrão
     public Pessoa() {
     }
 
-    // M�todo Construtor de Objeto, inserindo dados
+    // Construtor completo
     public Pessoa(int id, String nome, int idade) {
         this.id = id;
         this.nome = nome;
         this.idade = idade;
     }
 
-    // M�todos GET e SET
+    // Getters and setters
     public int getId() {
         return id;
     }

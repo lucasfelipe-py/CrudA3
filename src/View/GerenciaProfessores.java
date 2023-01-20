@@ -18,12 +18,14 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
+// Classe GerenciaAlunos herda as características de javax.swing.JFrame
 public class GerenciaProfessores extends javax.swing.JFrame {
     private Professor objetoProfessor;
     
+    // Construtor
     public GerenciaProfessores() {
         initComponents();
-        this.objetoProfessor = new Professor();
+        this.objetoProfessor = new Professor(); // Apontador para a Classe Professor
         this.carregaTabela();
     }
 
@@ -44,7 +46,7 @@ public class GerenciaProfessores extends javax.swing.JFrame {
         menuGerenciaAluno = new javax.swing.JMenuItem();
         menuExport = new javax.swing.JMenuItem();
         menuRefresh = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        sobre = new javax.swing.JMenuItem();
         menuLeave = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -165,13 +167,13 @@ public class GerenciaProfessores extends javax.swing.JFrame {
         });
         menu.add(menuRefresh);
 
-        jMenuItem1.setText("Sobre");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        sobre.setText("Sobre");
+        sobre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                sobreActionPerformed(evt);
             }
         });
-        menu.add(jMenuItem1);
+        menu.add(sobre);
 
         menuLeave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuLeave.setText("Sair");
@@ -228,6 +230,8 @@ public class GerenciaProfessores extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+    
+    // Método responsável por exportar para Excel
     private void exportXls() throws IOException{
         JFileChooser chooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Arquivos Excel", "xls");
@@ -285,16 +289,19 @@ public class GerenciaProfessores extends javax.swing.JFrame {
         }
     }
     
+    // Menu option: abrir tela de gerência dos alunos
     private void menuGerenciaAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGerenciaAlunoActionPerformed
         GerenciaAlunos tela = new GerenciaAlunos();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuGerenciaAlunoActionPerformed
-
+    
+    // Menu option: sair do sistema
     private void menuLeaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLeaveActionPerformed
         System.exit(0);
     }//GEN-LAST:event_menuLeaveActionPerformed
-
+    
+    // Button: cadastrar novo professor
     private void bCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCadastroActionPerformed
         try {
             CadastroProfessor tela = new CadastroProfessor();
@@ -304,7 +311,8 @@ public class GerenciaProfessores extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_bCadastroActionPerformed
-
+    
+    // Button: editar professor cadastrado
     private void bEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditarActionPerformed
         try {
             if (this.jTableProfessores.getSelectedRow() != -1){
@@ -321,6 +329,7 @@ public class GerenciaProfessores extends javax.swing.JFrame {
     
     public static String listaDados[] = new String[8];
     
+    // Método que realiza a validação dos campos formatados (retornando somente os números)
     private String validarFormatado(String input){
         String str = "";
             
@@ -333,6 +342,7 @@ public class GerenciaProfessores extends javax.swing.JFrame {
         return str;
     }
     
+    // Armazenar dados do professor selecionado na tabela
     private void jTableProfessoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableProfessoresMouseClicked
         if (this.jTableProfessores.getSelectedRow() != -1) {
 
@@ -355,7 +365,8 @@ public class GerenciaProfessores extends javax.swing.JFrame {
             listaDados[7] = id;
         }
     }//GEN-LAST:event_jTableProfessoresMouseClicked
-
+    
+    // Button: deletar professor selecionado
     private void bDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeletarActionPerformed
         try {
             // validando dados da interface gráfica.
@@ -386,14 +397,17 @@ public class GerenciaProfessores extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bDeletarActionPerformed
 
+    // Atualizar novas informações cadastradas ou editadas
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
         this.carregaTabela();
     }//GEN-LAST:event_refreshActionPerformed
-
+    
+    // Menu option: atualizar novas informações cadastradas ou editadas
     private void menuRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRefreshActionPerformed
         this.carregaTabela();
     }//GEN-LAST:event_menuRefreshActionPerformed
-
+    
+    // Menu option: exportar tabela para Excel
     private void menuExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExportActionPerformed
         try {
             this.exportXls();
@@ -401,7 +415,8 @@ public class GerenciaProfessores extends javax.swing.JFrame {
             Logger.getLogger(GerenciaProfessores.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_menuExportActionPerformed
-
+    
+    // Button: exportar tabela para Excel
     private void exportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportActionPerformed
         try {
             this.exportXls();
@@ -409,13 +424,15 @@ public class GerenciaProfessores extends javax.swing.JFrame {
             Logger.getLogger(GerenciaProfessores.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_exportActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    
+    // Abre a janela com as informações do software (about)
+    private void sobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sobreActionPerformed
         Sobre tela = new Sobre();
         tela.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_sobreActionPerformed
     
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")  
+    // Realiza a varredura no banco de dados e imprime as informações na tabela da tela de gerência
     public void carregaTabela() {
         DefaultTableModel modelo = (DefaultTableModel) this.jTableProfessores.getModel();
         modelo.setNumRows(0);
@@ -483,7 +500,6 @@ public class GerenciaProfessores extends javax.swing.JFrame {
     private javax.swing.JButton export;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableProfessores;
     private javax.swing.JMenu menu;
@@ -492,5 +508,6 @@ public class GerenciaProfessores extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuLeave;
     private javax.swing.JMenuItem menuRefresh;
     private javax.swing.JButton refresh;
+    private javax.swing.JMenuItem sobre;
     // End of variables declaration//GEN-END:variables
 }

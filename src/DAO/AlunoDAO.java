@@ -11,12 +11,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class AlunoDAO {
-
+    
+    // Arraylist dinâmico para armazenar temporariamente os dados que serão retornados pela função getMinhaLista()
     public static ArrayList<Aluno> MinhaLista = new ArrayList<Aluno>();
-
+    
+    // Construtor padrão
     public AlunoDAO() {
     }
-
+    
+    // Retorna o maior id do banco de dados
     public int maiorID() throws SQLException {
 
         int maiorID = 0;
@@ -32,7 +35,8 @@ public class AlunoDAO {
         }
         return maiorID;
     }
-
+    
+    // Estabelece a conexão com o banco de dados
     public Connection getConexao() {
 
         Connection connection = null;  //instância da conexão
@@ -68,7 +72,7 @@ public class AlunoDAO {
         }
     }
 
-    // Retorna a Lista de Alunos(objetos)
+    // Retorna a lista de alunos do banco de dados
     public ArrayList getMinhaLista() {
         
         MinhaLista.clear(); // Limpa o arrayList
@@ -158,7 +162,8 @@ public class AlunoDAO {
         }
 
     }
-
+    
+    // Carrega as informações de um aluno específico com base no ID
     public Aluno carregaAluno(int id) {
         
         Aluno objeto = new Aluno();

@@ -25,7 +25,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         arquivo = new javax.swing.JMenu();
         menuAlunos = new javax.swing.JMenuItem();
         menuProfessores = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        sobre = new javax.swing.JMenuItem();
         menuLeave = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -76,13 +76,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         arquivo.add(menuProfessores);
 
-        jMenuItem1.setText("Sobre");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        sobre.setText("Sobre");
+        sobre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                sobreActionPerformed(evt);
             }
         });
-        arquivo.add(jMenuItem1);
+        arquivo.add(sobre);
 
         menuLeave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuLeave.setText("Sair");
@@ -130,39 +130,45 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    // Button: abrir tela de GerenciaAlunos
     private void bAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAlunosActionPerformed
         GerenciaAlunos tela = new GerenciaAlunos();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bAlunosActionPerformed
-
+    
+    // Button: abrir tela de GerenciaProfessores
     private void bProfessoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bProfessoresActionPerformed
         GerenciaProfessores tela = new GerenciaProfessores();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bProfessoresActionPerformed
 
+    // Menu option: abrir tela de GerenciaAlunos
     private void menuAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAlunosActionPerformed
         GerenciaAlunos tela = new GerenciaAlunos();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuAlunosActionPerformed
 
+    // Menu option: abrir tela de GerenciaProfessores
     private void menuProfessoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProfessoresActionPerformed
         GerenciaProfessores tela = new GerenciaProfessores();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuProfessoresActionPerformed
-
+    
+    // Menu option: sair do sistema
     private void menuLeaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLeaveActionPerformed
         System.exit(0);
     }//GEN-LAST:event_menuLeaveActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    // Abre a janela com as informações do software (about)
+    private void sobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sobreActionPerformed
         Sobre tela = new Sobre();
         tela.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_sobreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,9 +193,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton bProfessores;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem menuAlunos;
     private javax.swing.JMenuItem menuLeave;
     private javax.swing.JMenuItem menuProfessores;
+    private javax.swing.JMenuItem sobre;
     // End of variables declaration//GEN-END:variables
 }

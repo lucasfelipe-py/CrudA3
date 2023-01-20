@@ -3,9 +3,12 @@ package View;
 import Model.Aluno;
 import javax.swing.JOptionPane;
 
+// Classe EditarAluno herda as características de javax.swing.JFrame
 public class EditarAluno extends javax.swing.JFrame {
-    private Aluno objetoAluno;
     
+    private Aluno objetoAluno; // Apontador para a Classe Aluno
+    
+    // Construtor
     public EditarAluno() {
         initComponents();
         preencheCampos();
@@ -129,7 +132,8 @@ public class EditarAluno extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    // Método responsável por setar os campos com as informações do objeto a ser editado
     private void preencheCampos(){
         String[] arrayCursos = {"-", 
                 "Administração", 
@@ -163,6 +167,8 @@ public class EditarAluno extends javax.swing.JFrame {
         this.curso.setSelectedIndex(indexCursos);
         this.fase.setSelectedIndex(indexFases);
     }
+    
+    // Action: confirmar a atualização com as informações preenchidas
     private void bConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConfirmarActionPerformed
         try {
             String nome = "";
@@ -220,7 +226,8 @@ public class EditarAluno extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Informe um número.");
         }
     }//GEN-LAST:event_bConfirmarActionPerformed
-
+    
+    // Action: cancelar a ação de editar aluno
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_bCancelarActionPerformed

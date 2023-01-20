@@ -8,14 +8,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
+// Classe CadastroAluno herda as características de javax.swing.JFrame
 public class CadastroAluno extends javax.swing.JFrame {
     
-    private Aluno objetoAluno;
+    private Aluno objetoAluno; // Apontador para a Classe Aluno
     
+    // Construtor
     public CadastroAluno() {
         initComponents();
-        getRootPane().setDefaultButton(this.bConfirmar);
-        this.objetoAluno = new Aluno();
+        getRootPane().setDefaultButton(this.bConfirmar); // Pressionar confirmar com a tecla ENTER
+        this.objetoAluno = new Aluno(); // Instanciando novo objeto da Classe Aluno
     }
 
     /**
@@ -135,6 +137,8 @@ public class CadastroAluno extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+    
+    // Método que calcula a idade do aluno cadastrado com base na data de nascimento recebida
     private int calculaIdade(java.util.Date dataNasc){
         Calendar dataNascimento = new GregorianCalendar();
         dataNascimento.setTime(dataNasc);
@@ -152,6 +156,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         return age;
     }
     
+    // Action: confirmar as informações preenchidas
     private void bConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConfirmarActionPerformed
         try {
             String nome = "";
@@ -210,7 +215,8 @@ public class CadastroAluno extends javax.swing.JFrame {
             Logger.getLogger(CadastroAluno.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_bConfirmarActionPerformed
-
+    
+    // Action: cancelar a ação de cadastrar aluno
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_bCancelarActionPerformed
@@ -218,6 +224,8 @@ public class CadastroAluno extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+    // Rodando a tela de cadastro
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

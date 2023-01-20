@@ -8,9 +8,12 @@ import javax.swing.text.MaskFormatter;
 import Model.Professor;
 import java.util.ArrayList;
 
+// Classe EditarProfessor herda as características de javax.swing.JFrame
 public class EditarProfessor extends javax.swing.JFrame {
-    private Professor objetoProfessor;
     
+    private Professor objetoProfessor; // Apontador para a Classe Professor
+    
+    // Construtor
     public EditarProfessor() throws java.text.ParseException {
         initComponents();
         formatarCampos();
@@ -180,6 +183,7 @@ public class EditarProfessor extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
+    // Método responsável pela implementação das máscaras dos campos
     private void formatarCampos() throws java.text.ParseException{
         try {
             MaskFormatter mask = new MaskFormatter("###.###.###-##");
@@ -193,6 +197,7 @@ public class EditarProfessor extends javax.swing.JFrame {
         }
     }
     
+    // Método que varre o banco de dados e retorna se o CPF já consta no mesmo
     private boolean verificaCpf(String cpf){
         ArrayList<Professor> minhalista = new ArrayList<>();
         minhalista = objetoProfessor.getMinhaLista();
@@ -205,6 +210,7 @@ public class EditarProfessor extends javax.swing.JFrame {
         return false;
     }
     
+    // Método que realiza a validação dos campos formatados (retornando somente os números)
     private String validarFormatado(String input){
         String str = "";
             
@@ -217,6 +223,7 @@ public class EditarProfessor extends javax.swing.JFrame {
         return str;
     }
     
+    // Método que altera o formato do atributo salário para setar o campo na função de edit
     private String editSalario(String input){
         String str = "";
         
@@ -227,6 +234,7 @@ public class EditarProfessor extends javax.swing.JFrame {
         return str;
     }
     
+    // Método responsável por setar os campos com as informações do objeto a ser editado
     private void preencheCampos(){
         String[] arrayCampus = {"-", 
                 "Continente",
@@ -265,6 +273,7 @@ public class EditarProfessor extends javax.swing.JFrame {
         this.salarioFormatado.setText(editSalario(GerenciaProfessores.listaDados[6]));
     }
     
+    // Action: confirmar a atualização com as informações preenchidas
     private void bConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConfirmarActionPerformed
         try {
             String nome = "";
@@ -356,7 +365,8 @@ public class EditarProfessor extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Informe um número.");
         }
     }//GEN-LAST:event_bConfirmarActionPerformed
-
+    
+    // Action: cancelar a ação de editar professor
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_bCancelarActionPerformed

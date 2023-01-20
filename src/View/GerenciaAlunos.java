@@ -17,12 +17,15 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
+// Classe GerenciaAlunos herda as características de javax.swing.JFrame
 public class GerenciaAlunos extends javax.swing.JFrame {
+    
     private Aluno objetoAluno;
     
+    // Construtor
     public GerenciaAlunos() {
         initComponents();
-        this.objetoAluno = new Aluno();
+        this.objetoAluno = new Aluno(); // Apontador para a Classe Aluno
         this.carregaTabela();
     }
 
@@ -43,7 +46,7 @@ public class GerenciaAlunos extends javax.swing.JFrame {
         menuGerenciaProfessores = new javax.swing.JMenuItem();
         menuExport = new javax.swing.JMenuItem();
         menuRefresh = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        sobre = new javax.swing.JMenuItem();
         menuLeave = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -163,13 +166,13 @@ public class GerenciaAlunos extends javax.swing.JFrame {
         });
         menu.add(menuRefresh);
 
-        jMenuItem1.setText("Sobre");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        sobre.setText("Sobre");
+        sobre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                sobreActionPerformed(evt);
             }
         });
-        menu.add(jMenuItem1);
+        menu.add(sobre);
 
         menuLeave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuLeave.setText("Sair");
@@ -225,6 +228,8 @@ public class GerenciaAlunos extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+    
+    // Método responsável por exportar para Excel
     private void exportXls() throws IOException{
         JFileChooser chooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Arquivos Excel", "xls");
@@ -282,22 +287,26 @@ public class GerenciaAlunos extends javax.swing.JFrame {
         }
     }
     
+    // Menu option: abrir tela de gerência dos professores
     private void menuGerenciaProfessoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGerenciaProfessoresActionPerformed
         GerenciaProfessores tela = new GerenciaProfessores();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuGerenciaProfessoresActionPerformed
-
+    
+    // Menu option: sair do sistema
     private void menuLeaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLeaveActionPerformed
         System.exit(0);
     }//GEN-LAST:event_menuLeaveActionPerformed
-
+    
+    // Button: cadastrar novo aluno
     private void bCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCadastroActionPerformed
         CadastroAluno tela = new CadastroAluno();
         tela.setVisible(true);
         
     }//GEN-LAST:event_bCadastroActionPerformed
-
+    
+    // Button: editar aluno cadastrado
     private void bEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditarActionPerformed
         if (this.jTableAlunos.getSelectedRow() != -1){
             EditarAluno tela = new EditarAluno();
@@ -310,6 +319,7 @@ public class GerenciaAlunos extends javax.swing.JFrame {
     
     public static String listaDados2[] = new String[5];
     
+    // Armazenar dados do aluno selecionado na tabela
     private void jTableAlunosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAlunosMouseClicked
         if (this.jTableAlunos.getSelectedRow() != -1) {
 
@@ -329,7 +339,8 @@ public class GerenciaAlunos extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jTableAlunosMouseClicked
-
+    
+    // Button: deletar aluno selecionado
     private void bDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeletarActionPerformed
         try {
             // validando dados da interface gráfica.
@@ -359,15 +370,18 @@ public class GerenciaAlunos extends javax.swing.JFrame {
             carregaTabela();
         }
     }//GEN-LAST:event_bDeletarActionPerformed
-
+    
+    // Atualizar novas informações cadastradas ou editadas
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
         this.carregaTabela();
     }//GEN-LAST:event_refreshActionPerformed
-
+    
+    // Menu option: atualizar novas informações cadastradas ou editadas
     private void menuRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRefreshActionPerformed
         this.carregaTabela();
     }//GEN-LAST:event_menuRefreshActionPerformed
-
+    
+    // Menu option: exportar tabela para Excel
     private void menuExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExportActionPerformed
         try {
             this.exportXls();
@@ -375,7 +389,8 @@ public class GerenciaAlunos extends javax.swing.JFrame {
             Logger.getLogger(GerenciaAlunos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_menuExportActionPerformed
-
+    
+    // Button: exportar tabela para Excel
     private void exportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportActionPerformed
         try {
             this.exportXls();
@@ -383,13 +398,15 @@ public class GerenciaAlunos extends javax.swing.JFrame {
             Logger.getLogger(GerenciaAlunos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_exportActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    
+    // Abre a janela com as informações do software (about)
+    private void sobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sobreActionPerformed
         Sobre tela = new Sobre();
         tela.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_sobreActionPerformed
     
     @SuppressWarnings("unchecked")
+    // Realiza a varredura no banco de dados e imprime as informações na tabela da tela de gerência
     public void carregaTabela() {
         DefaultTableModel modelo = (DefaultTableModel) this.jTableAlunos.getModel();
         modelo.setNumRows(0);
@@ -458,7 +475,6 @@ public class GerenciaAlunos extends javax.swing.JFrame {
     private javax.swing.JButton export;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableAlunos;
     private javax.swing.JMenu menu;
@@ -467,5 +483,6 @@ public class GerenciaAlunos extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuLeave;
     private javax.swing.JMenuItem menuRefresh;
     private javax.swing.JButton refresh;
+    private javax.swing.JMenuItem sobre;
     // End of variables declaration//GEN-END:variables
 }

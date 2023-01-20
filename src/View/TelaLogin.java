@@ -5,10 +5,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
+// Classe TelaLogin herda as características de javax.swing.JFrame
 public class TelaLogin extends javax.swing.JFrame {
-    public static String passwordDB = "";
-    public static String userDB = "";
+    public static String passwordDB = ""; // Armazena senha em tempo de execução
+    public static String userDB = ""; // Armazena user em tempo de execução
     
+    // Construtor
     public TelaLogin() {
         initComponents();
         getRootPane().setDefaultButton(this.login);
@@ -108,6 +110,7 @@ public class TelaLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
+    // Verifica se o usuário/senha fornecidos conferem
     private boolean checarConexao() throws Mensagens {
         AlunoDAO teste = new AlunoDAO();
         
@@ -118,7 +121,9 @@ public class TelaLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Conexão falhou!");
             return false;
         }
-    }        
+    }
+    
+    // Action: efetuar login
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         String str = String.copyValueOf(this.password.getPassword());
         this.passwordDB = str;

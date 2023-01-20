@@ -12,11 +12,13 @@ import java.sql.Statement;
 
 public class ProfessorDAO {
     
+    // Arraylist dinâmico para armazenar temporariamente os dados que serão retornados pela função getMinhaLista()
     public static ArrayList<Professor> MinhaLista2 = new ArrayList<Professor>();
 
     public ProfessorDAO() {
     }
     
+    // Retorna o maior id do banco de dados
     public int maiorID() throws SQLException {
         int maiorID = 0;
         
@@ -34,6 +36,7 @@ public class ProfessorDAO {
         return maiorID;
     }
     
+    // Estabelece a conexão com o banco de dados
     public Connection getConexao() {
 
         Connection connection = null;  //Instância da conexão
@@ -70,7 +73,7 @@ public class ProfessorDAO {
         }
     }
     
-    // Retorna a Lista de Professores (objetos)
+    // Retorna a lista de professores do banco de dados
     public ArrayList getMinhaLista() {
         
         MinhaLista2.clear(); // Limpa o arrayList
@@ -171,7 +174,7 @@ public class ProfessorDAO {
 
     }
     
-    
+    // Carrega as informações de um professor específico com base no ID
     public Professor carregaProfessor(int id) {
         
         Professor objeto = new Professor();

@@ -4,6 +4,7 @@ import DAO.ProfessorDAO;
 import java.sql.SQLException;
 import java.util.*;
 
+// Classe Professor herda as características de Pessoa
 public class Professor extends Pessoa {
     
     // Atributos
@@ -14,11 +15,12 @@ public class Professor extends Pessoa {
     private int salario;
     private final ProfessorDAO dao;
 
-    // Construtores
+    // Construtor padrão
     public Professor() {
         this.dao = new ProfessorDAO();
     }
-
+    
+    // Construtor completo da Classe Professor
     public Professor(String campus, String cpf, String contato, String titulo, int salario) {
         this.campus = campus;
         this.cpf = cpf;
@@ -27,7 +29,8 @@ public class Professor extends Pessoa {
         this.salario = salario;
         this.dao = new ProfessorDAO();
     }
-
+    
+    // Construtor completo da Classe Professor + Superclasse Pessoa 
     public Professor(String campus, String cpf, String contato, String titulo, int salario, int id, String nome, int idade) {
         super(id, nome, idade);
         this.campus = campus;
@@ -39,7 +42,7 @@ public class Professor extends Pessoa {
     }
     
     
-    // Métodos GET e SET
+    // Getters and setters
     public String getCampus() {
         return campus;
     }
@@ -80,8 +83,8 @@ public class Professor extends Pessoa {
         this.salario = salario;
     }
     
-    // Override necessário para poder retornar os dados de Pessoa no toString para professor.
-        @Override
+    // Sobrescrevendo método toString() para adequar o retorno de acordo com o objeto que aciona o mesmo
+    @Override
     public String toString() {
         return "\n ID: " + this.getId()
                 + "\n Nome: " + this.getNome()
@@ -95,13 +98,13 @@ public class Professor extends Pessoa {
     }
     
     /*
-        ABAIXO OS M�TODOS PARA USO JUNTO COM O DAO
-        SIMULANDO A ESTRUTURA EM CAMADAS PARA USAR COM BANCOS DE DADOS.
+        Abaixo:
+        • Métodos responsáveis pelas ações referentes ao banco de dados.
+        • Atuam em conjunto com a Classe DAO através da variável dao que recebe um objeto da referida Classe.
     */
     
-    // Retorna a Lista de Professores (objetos)
+    // Retorna a lista de alunos do banco de dados
     public ArrayList getMinhaLista() {
-        //return AlunoDAO.MinhaLista;
         return dao.getMinhaLista();
     }
     
@@ -126,13 +129,13 @@ public class Professor extends Pessoa {
         return true;
     }
     
-    // carrega dados de um professor específico pelo seu ID
+    // Carrega as informações de um professor específico com base no ID
     public Professor carregaProfessor(int id) {
         dao.carregaProfessor(id);
         return null;
     }
     
-    // retorna o maior ID da nossa base de dados
+    // Retorna o maior id do banco de dados
         public int maiorID() throws SQLException{
         return dao.maiorID();
     } 

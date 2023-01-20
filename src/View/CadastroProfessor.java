@@ -11,9 +11,12 @@ import javax.swing.text.MaskFormatter;
 import Model.Professor;
 import java.util.ArrayList;
 
+// Classe CadastroProfessor herda as características de javax.swing.JFrame
 public class CadastroProfessor extends javax.swing.JFrame {
-    private Professor objetoProfessor;
     
+    private Professor objetoProfessor; // Apontador para a Classe Professor
+    
+    // Construtor
     public CadastroProfessor() throws java.text.ParseException {
         initComponents();
         formatarCampos();
@@ -184,6 +187,7 @@ public class CadastroProfessor extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
+    // Método responsável pela implementação das máscaras dos campos
     private void formatarCampos() throws java.text.ParseException{
         try {
             MaskFormatter mask = new MaskFormatter("###.###.###-##");
@@ -197,6 +201,7 @@ public class CadastroProfessor extends javax.swing.JFrame {
         }
     }
     
+    // Método que varre o banco de dados e retorna se o CPF já consta no mesmo
     private boolean verificaCpf(String cpf){
         ArrayList<Professor> minhalista = new ArrayList<>();
         minhalista = objetoProfessor.getMinhaLista();
@@ -209,6 +214,7 @@ public class CadastroProfessor extends javax.swing.JFrame {
         return false;
     }
     
+    // Método que calcula a idade do professor cadastrado com base na data de nascimento recebida
     private int calculaIdade(java.util.Date dataNasc){
         Calendar dataNascimento = new GregorianCalendar();
         dataNascimento.setTime(dataNasc);
@@ -226,6 +232,7 @@ public class CadastroProfessor extends javax.swing.JFrame {
         return age;
     }
     
+    // Método que realiza a validação dos campos formatados (retornando somente os números)
     private String validarFormatado(String input){
         String str = "";
             
@@ -238,11 +245,8 @@ public class CadastroProfessor extends javax.swing.JFrame {
         return str;
     }
     
-    
-
-    
+    // Action: confirmar as informações preenchidas
     private void bConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConfirmarActionPerformed
-        
         try {
             String nome = "";
             String campus = "";
@@ -317,8 +321,7 @@ public class CadastroProfessor extends javax.swing.JFrame {
             
             // Adicionando dados validados no database
             if (this.objetoProfessor.InsertProfessorBD(campus, cpf, contato, titulo, salario, nome, idade)){
-                JOptionPane.showMessageDialog(rootPane, "Professor cadastrado com sucesso!");
-                
+                JOptionPane.showMessageDialog(rootPane, "Professor cadastrado com sucesso!"); 
                 this.dispose();
             }
             
@@ -335,7 +338,8 @@ public class CadastroProfessor extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_bConfirmarActionPerformed
-
+    
+    // Action: cancelar a ação de cadastrar aluno
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_bCancelarActionPerformed
@@ -343,6 +347,8 @@ public class CadastroProfessor extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+    // Rodando a tela de cadastro
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
