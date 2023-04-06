@@ -20,7 +20,7 @@ public class Professor extends Pessoa {
         this.dao = new ProfessorDAO();
     }
     
-    // Construtor completo da Classe Professor
+    // Construtor completo da classe Professor
     public Professor(String campus, String cpf, String contato, String titulo, int salario) {
         this.campus = campus;
         this.cpf = cpf;
@@ -30,7 +30,7 @@ public class Professor extends Pessoa {
         this.dao = new ProfessorDAO();
     }
     
-    // Construtor completo da Classe Professor + Superclasse Pessoa 
+    // Construtor completo da classe Professor + Superclasse Pessoa 
     public Professor(String campus, String cpf, String contato, String titulo, int salario, int id, String nome, int idade) {
         super(id, nome, idade);
         this.campus = campus;
@@ -98,9 +98,8 @@ public class Professor extends Pessoa {
     }
     
     /*
-        Abaixo:
         • Métodos responsáveis pelas ações referentes ao banco de dados.
-        • Atuam em conjunto com a Classe DAO através da variável dao que recebe um objeto da referida Classe.
+        • Atuam em conjunto com a classe DAO através da variável dao que recebe um objeto da referida classe.
     */
     
     // Retorna a lista de alunos do banco de dados
@@ -135,7 +134,7 @@ public class Professor extends Pessoa {
         return null;
     }
     
-    // Retorna o maior id do banco de dados
+    // Retorna o maior ID do banco de dados
         public int maiorID() throws SQLException{
         return dao.maiorID();
     } 

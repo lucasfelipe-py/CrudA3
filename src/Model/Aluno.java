@@ -17,14 +17,14 @@ public class Aluno extends Pessoa {
         this.dao = new AlunoDAO(); // Instanciando objeto da Classe responsável pela interação com o banco de dados
     }
 
-    // Construtor completo da Classe Aluno
+    // Construtor completo da classe Aluno
     public Aluno(String curso, int fase) {
         this.curso = curso;
         this.fase = fase;
-        this.dao = new AlunoDAO(); // Instanciando objeto da Classe responsável pela interação com o banco de dados
+        this.dao = new AlunoDAO(); // Instanciando objeto da classe responsável pela interação com o banco de dados
     }
 
-    // Construtor completo da Classe Aluno + SuperClasse Pessoa
+    // Construtor completo da classe Aluno + Superclasse Pessoa
     public Aluno(String curso, int fase, int id, String nome, int idade) {
         super(id, nome, idade);
         this.curso = curso;
@@ -61,14 +61,12 @@ public class Aluno extends Pessoa {
     }
     
     /*
-        Abaixo:
         • Métodos responsáveis pelas ações referentes ao banco de dados.
-        • Atuam em conjunto com a Classe DAO através da variável dao que recebe um objeto da referida Classe.
+        • Atuam em conjunto com a Classe DAO através da variável dao que recebe um objeto da referida classe.
     */
     
     // Retorna a lista de alunos do banco de dados
     public ArrayList getMinhaLista() {
-        //return AlunoDAO.MinhaLista;
         return dao.getMinhaLista();
     }
 
@@ -100,7 +98,7 @@ public class Aluno extends Pessoa {
         return null;
     }
     
-    // Retorna o maior id do banco de dados
+    // Retorna o maior ID do banco de dados
     public int maiorID() throws SQLException{
         return dao.maiorID();
     }   

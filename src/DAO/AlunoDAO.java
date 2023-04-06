@@ -19,7 +19,7 @@ public class AlunoDAO {
     public AlunoDAO() {
     }
     
-    // Retorna o maior id do banco de dados
+    // Retorna o maior ID do banco de dados
     public int maiorID() throws SQLException {
 
         int maiorID = 0;
@@ -33,13 +33,14 @@ public class AlunoDAO {
 
         } catch (SQLException ex) {
         }
+        
         return maiorID;
     }
     
     // Estabelece a conexão com o banco de dados
     public Connection getConexao() {
 
-        Connection connection = null;  //instância da conexão
+        Connection connection = null;  // Instância da conexão
 
         try {
             // Carregamento do JDBC Driver
@@ -53,21 +54,21 @@ public class AlunoDAO {
 
             connection = DriverManager.getConnection(url, user, password);
 
-            // Testando..
+            // Testando a conexão
             if (connection != null) {
                 System.out.println("Status: Conectado!");
             } else {
-                System.out.println("Status: N�O CONECTADO!");
+                System.out.println("Status: Não conectado!");
             }
 
             return connection;
 
-        } catch (ClassNotFoundException e) {  //Driver não encontrado
+        } catch (ClassNotFoundException e) {  // Driver não encontrado
             System.out.println("O driver nao foi encontrado. " + e.getMessage() );
             return null;
 
         } catch (SQLException e) {
-            System.out.println("Nao foi possivel conectar...");
+            System.out.println("Não foi possivel conectar");
             return null;
         }
     }
@@ -75,7 +76,7 @@ public class AlunoDAO {
     // Retorna a lista de alunos do banco de dados
     public ArrayList getMinhaLista() {
         
-        MinhaLista.clear(); // Limpa o arrayList
+        MinhaLista.clear(); // Limpa o ArrayList
 
         try {
             Statement stmt = this.getConexao().createStatement();
@@ -160,7 +161,6 @@ public class AlunoDAO {
         } catch (SQLException erro) {
             throw new RuntimeException(erro);
         }
-
     }
     
     // Carrega as informações de um aluno específico com base no ID
@@ -183,6 +183,7 @@ public class AlunoDAO {
             
         } catch (SQLException erro) {
         }
+        
         return objeto;
     }
 }

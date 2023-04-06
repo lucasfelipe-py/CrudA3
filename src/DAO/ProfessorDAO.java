@@ -18,7 +18,7 @@ public class ProfessorDAO {
     public ProfessorDAO() {
     }
     
-    // Retorna o maior id do banco de dados
+    // Retorna o maior ID do banco de dados
     public int maiorID() throws SQLException {
         int maiorID = 0;
         
@@ -39,10 +39,9 @@ public class ProfessorDAO {
     // Estabelece a conexão com o banco de dados
     public Connection getConexao() {
 
-        Connection connection = null;  //Instância da conexão
+        Connection connection = null;  // Instância da conexão
 
         try {
-
             // Carregamento do JDBC Driver
             String driver = "com.mysql.cj.jdbc.Driver";
             Class.forName(driver);
@@ -54,21 +53,21 @@ public class ProfessorDAO {
 
             connection = DriverManager.getConnection(url, user, password);
 
-            // Testando..
+            // Testando a conexão
             if (connection != null) {
                 System.out.println("Status: Conectado!");
             } else {
-                System.out.println("Status: NÃO CONECTADO!");
+                System.out.println("Status: Não conectado!");
             }
 
             return connection;
-
+            
         } catch (ClassNotFoundException e) {  //Driver não encontrado
             System.out.println("O driver não foi encontrado. " + e.getMessage());
             return null;
 
         } catch (SQLException e) {
-            System.out.println("Não foi possível conectar...");
+            System.out.println("Não foi possível conectar.");
             return null;
         }
     }
@@ -171,7 +170,6 @@ public class ProfessorDAO {
         } catch (SQLException erro) {
             throw new RuntimeException(erro);
         }
-
     }
     
     // Carrega as informações de um professor específico com base no ID

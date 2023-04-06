@@ -343,7 +343,7 @@ public class GerenciaAlunos extends javax.swing.JFrame {
     // Button: deletar aluno selecionado
     private void bDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeletarActionPerformed
         try {
-            // validando dados da interface gráfica.
+            // Validando dados da interface gráfica
             int id = 0;
             
             if (this.jTableAlunos.getSelectedRow() == -1) {
@@ -358,7 +358,7 @@ public class GerenciaAlunos extends javax.swing.JFrame {
 
             if (respostaUsuario == 0) {// clicou em SIM
 
-                // envia os dados para o Professor processar
+                // Envia os dados para o Professor processar
                 if (this.objetoAluno.DeleteAlunoBD(id)) {
                     JOptionPane.showMessageDialog(rootPane, "Cadastro apagado com sucesso!");
                 }
@@ -366,7 +366,7 @@ public class GerenciaAlunos extends javax.swing.JFrame {
         } catch (Mensagens erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         } finally {
-            // atualiza a tabela.
+            // Atualiza a tabela
             carregaTabela();
         }
     }//GEN-LAST:event_bDeletarActionPerformed
